@@ -1,0 +1,18 @@
+export const SUBSTITUTIONS: Record<string, string[]> = {
+  butter: ["olive oil", "ghee", "coconut oil"],
+  milk: ["oat milk", "almond milk", "soy milk"],
+  egg: ["flax egg", "chia egg", "silken tofu"],
+  yogurt: ["sour cream", "coconut yogurt"],
+  cream: ["evaporated milk", "cashew cream"],
+  sugar: ["honey", "maple syrup", "jaggery"],
+  rice: ["quinoa", "cauliflower rice"],
+  wheat_flour: ["gluten-free flour blend", "almond flour"],
+  cheese: ["nutritional yeast"],
+  chicken: ["tofu", "paneer", "tempeh"],
+  beef: ["mushroom", "soy mince"],
+  fish: ["tofu", "jackfruit"],
+  mayonnaise: ["yogurt", "hummus"],
+  tomato: ["tomato paste + water", "canned tomato"],
+  garlic: ["garlic powder"],
+  onion: ["shallot", "leek"],
+};

@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.75rem;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-gray-900 dark:bg-neutral-950 dark:text-neutral-100;
+}
+
+.container-py {
+  @apply container py-6 md:py-10;
+}
+
+.card {
+  @apply rounded-2xl border border-gray-200 bg-white shadow-soft dark:border-neutral-800 dark:bg-neutral-900;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition;
+}
+
+.btn-primary {
+  @apply btn bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100;
+}
+
+.input {
+  @apply w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm outline-none transition placeholder:text-gray-400 focus:ring-2 focus:ring-gray-900 dark:border-neutral-800 dark:bg-neutral-900 dark:placeholder:text-neutral-500 dark:focus:ring-neutral-100;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-700 dark:border-neutral-800 dark:text-neutral-200;
+}
+
+.skeleton {
+  @apply animate-pulse rounded-xl bg-gray-200 dark:bg-neutral-800;
+}
