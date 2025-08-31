@@ -1,0 +1,15 @@
+# Ignore Next.js build output
+.next/* linguist-vendored
+out/* linguist-vendored
+
+# Ignore static assets (images, html, etc.)
+public/* linguist-vendored
+
+# Ignore CSS/HTML build files
+*.css linguist-vendored
+*.html linguist-vendored
+
+# Ensure TypeScript/JavaScript are detected
+*.ts linguist-detectable=true
+*.tsx linguist-detectable=true
+*.js linguist-detectable=true
