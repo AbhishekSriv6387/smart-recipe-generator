@@ -77,10 +77,12 @@
 //     return new NextResponse(e?.message || "Unexpected error", { status: 500 });
 //   }
 // }
+
+
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-export const runtime = "nodejs"; // use nodejs runtime since Gemini SDK needs it
+export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {
   try {
@@ -103,11 +105,11 @@ export async function POST(req: NextRequest) {
     const bytes = Buffer.from(await file.arrayBuffer());
     const base64Image = bytes.toString("base64");
 
-    // Init Gemini
+    // Initialize Gemini
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    // Prompt
+    // Prompt for clean JSON array
     const prompt = `
       You are an AI ingredient recognizer.
       Analyze this food image and return ONLY a JSON array of ingredients.
@@ -119,18 +121,31 @@ export async function POST(req: NextRequest) {
       { text: prompt },
     ]);
 
-    const responseText = result.response.text().trim();
+    let responseText = result.response.text().trim();
 
-    let ingredients: string[];
+    // Clean markdown/code block artifacts
+    responseText = responseText
+      .replace(/```json/gi, "")
+      .replace(/```/g, "")
+      .replace(/^\s*json/i, "")
+      .trim();
+
+    let ingredients: string[] = [];
     try {
+      // Try parse as JSON
       ingredients = JSON.parse(responseText);
     } catch {
+      // Fallback: parse as plain text list
       ingredients = responseText
         .replace(/[\[\]"]/g, "")
         .split(/,|\n/)
-        .map((s) => s.trim())
+        .map((s) => s.trim().toLowerCase())
         .filter(Boolean);
     }
+
+    // Extra cleanup: remove junk tokens
+    const blacklist = ["json", "```", "jpeg", "jpg", "png", "image", ".."];
+    ingredients = ingredients.filter((i) => !blacklist.includes(i));
 
     return NextResponse.json({ ingredients });
   } catch (e: any) {
