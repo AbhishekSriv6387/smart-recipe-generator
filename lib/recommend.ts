@@ -1,9 +1,13 @@
-// lib/recommend.ts
 import { RECIPES } from "./recipes";
 
 export function getSuggestions(): typeof RECIPES {
+  if (typeof window === "undefined") {
+    // 🚫 SSR: no localStorage → return empty array or fallback
+    return [];
+  }
+
   let favIds = RECIPES.filter(r => localStorage.getItem(`fav-${r.id}`) === "true").map(r => r.id);
-  
+
   if (favIds.length === 0) {
     // fallback: top rated recipes
     return RECIPES.filter(r => {
@@ -16,5 +20,6 @@ export function getSuggestions(): typeof RECIPES {
   const favCuisines = new Set(
     RECIPES.filter(r => favIds.includes(r.id)).map(r => r.cuisine)
   );
+
   return RECIPES.filter(r => favCuisines.has(r.cuisine)).slice(0, 6);
 }

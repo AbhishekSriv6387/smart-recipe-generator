@@ -21,26 +21,40 @@ export default function HomePage() {
     cuisine?: string;
     diet?: string[];
   }>({});
+  const [hydrated, setHydrated] = React.useState(false);
+
+  // ✅ ensure client-only hydration
+  React.useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   // 🔹 Re-run filters when query or filters change
   React.useEffect(() => {
     let r = RECIPES.slice();
-    if (filters.difficulty) r = r.filter(x => x.difficulty === filters.difficulty);
-    if (filters.time && filters.time > 0) r = r.filter(x => x.timeMinutes <= (filters.time as number));
-    if (filters.cuisine) r = r.filter(x => x.cuisine === filters.cuisine);
+    if (filters.difficulty) r = r.filter((x) => x.difficulty === filters.difficulty);
+    if (filters.time && filters.time > 0)
+      r = r.filter((x) => x.timeMinutes <= (filters.time as number));
+    if (filters.cuisine) r = r.filter((x) => x.cuisine === filters.cuisine);
     if (filters.diet && filters.diet.length)
-      r = r.filter(x => filters.diet!.every(d => x.dietary.includes(d as any)));
+      r = r.filter((x) => filters.diet!.every((d) => x.dietary.includes(d as any)));
     if (query)
       r = r.filter(
-        x =>
+        (x) =>
           x.name.toLowerCase().includes(query.toLowerCase()) ||
-          x.tags?.some(t => t.toLowerCase().includes(query.toLowerCase()))
+          x.tags?.some((t) => t.toLowerCase().includes(query.toLowerCase()))
       );
     setFiltered(r);
   }, [filters, query]);
 
-  // 🔹 Ranking is pure function, safe to memoize
-  const ranked = React.useMemo(() => rankRecipes(filtered, pantry, diet), [filtered, pantry, diet]);
+  const ranked = React.useMemo(
+    () => rankRecipes(filtered, pantry, diet),
+    [filtered, pantry, diet]
+  );
+
+  // 🚫 Don't render until client-side mounted (avoids localStorage SSR issues)
+  if (!hydrated) {
+    return <p className="p-10 text-center text-gray-400">Loading recipes...</p>;
+  }
 
   return (
     <div className="space-y-16">
@@ -60,7 +74,6 @@ export default function HomePage() {
             and creative meal ideas — instantly.
           </p>
         </motion.div>
-        {/* Decorative blurred circle */}
         <div className="absolute -top-20 -right-20 w-72 h-72 bg-white/20 rounded-full blur-3xl"></div>
       </section>
 
@@ -76,14 +89,14 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           {/* Search */}
           <form
-            onSubmit={e => e.preventDefault()}
+            onSubmit={(e) => e.preventDefault()}
             className="flex rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-neutral-700"
           >
             <input
               className="flex-1 px-4 py-3 text-gray-800 dark:text-gray-200 bg-white dark:bg-neutral-900 placeholder-gray-400 focus:outline-none"
               placeholder="🔍 Search recipes..."
               value={query}
-              onChange={e => setQuery(e.target.value)}
+              onChange={(e) => setQuery(e.target.value)}
             />
             <button
               type="submit"
@@ -95,7 +108,9 @@ export default function HomePage() {
 
           {/* Dietary Preferences */}
           <div className="rounded-2xl p-5 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-neutral-800 dark:to-neutral-700 shadow-inner">
-            <p className="text-sm font-medium text-gray-700 dark:text-gray-200">Dietary preferences</p>
+            <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
+              Dietary preferences
+            </p>
             <div className="mt-4">
               <DietaryFilters selected={diet} onChange={setDiet} />
             </div>
@@ -126,7 +141,7 @@ export default function HomePage() {
           layout
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {ranked.map(r => (
+          {ranked.map((r) => (
             <motion.div
               key={r.recipe.id}
               initial={{ opacity: 0, y: 20 }}
@@ -146,7 +161,7 @@ export default function HomePage() {
           layout
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {getSuggestions().map(r => (
+          {getSuggestions().map((r) => (
             <motion.div
               key={r.id}
               initial={{ opacity: 0, y: 20 }}
