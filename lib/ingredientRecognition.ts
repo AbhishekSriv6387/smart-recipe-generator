@@ -72,6 +72,12 @@
  * Frontend helper to send an image to our API for recognition.
  * The actual AI call happens server-side in /api/recognize/route.ts
  */
+
+
+
+
+
+
 export async function recognizeIngredients(file: File): Promise<string[]> {
   try {
     const form = new FormData();
@@ -94,3 +100,5 @@ export async function recognizeIngredients(file: File): Promise<string[]> {
     return [];
   }
 }
+
+
