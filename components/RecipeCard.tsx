@@ -12,14 +12,22 @@ type RecipeCardProps = {
 };
 
 export default function RecipeCard({ r }: RecipeCardProps) {
-  const [favorites, setFavorites] = React.useState<string[]>(() => getFavorites());
-  const [rating, setRatingState] = React.useState<number>(() => getRatings()[r.id] || 0);
+  const [favorites, setFavorites] = React.useState<string[]>([]);
+  const [rating, setRatingState] = React.useState<number>(0);
+  const [hydrated, setHydrated] = React.useState(false);
+
+  // ✅ Safely hydrate after client mounts
+  React.useEffect(() => {
+    setFavorites(getFavorites());
+    setRatingState(getRatings()[r.id] || 0);
+    setHydrated(true);
+  }, [r.id]);
 
   const isFav = favorites.includes(r.id);
 
   const handleFav = () => {
     const newFavs = toggleFavorite(r.id);
-    setFavorites(newFavs);
+    setFavorites(newFavs); // update UI immediately
   };
 
   const handleRating = (newValue: number) => {
@@ -34,38 +42,40 @@ export default function RecipeCard({ r }: RecipeCardProps) {
                  hover:shadow-2xl bg-gradient-to-br from-white/80 to-purple-50/80 
                  dark:from-neutral-900/70 dark:to-neutral-800/70 backdrop-blur-lg"
     >
-      {/* Image Section */}
+      {/* 🔹 Image Section */}
       <Link href={`/recipes/${r.slug}`} className="block relative">
         <img
           src={r.image}
           alt={r.name}
           className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent 
                         opacity-70 group-hover:opacity-90 transition-all"></div>
 
-        {/* Floating Favorite Button */}
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            handleFav();
-          }}
-          className={`absolute top-4 right-4 p-3 rounded-full shadow-lg backdrop-blur-md 
-                      transition-all duration-300 hover:scale-110
-                      ${isFav ? "bg-red-500 text-white scale-110" : "bg-white/80 text-gray-700 hover:bg-red-100"}`}
-        >
-          <Heart size={20} fill={isFav ? "white" : "none"} />
-        </button>
+        {/* Favorite Button */}
+        {hydrated && (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              handleFav();
+            }}
+            className={`absolute top-4 right-4 p-3 rounded-full shadow-lg backdrop-blur-md 
+                        transition-all duration-300 hover:scale-110
+                        ${isFav ? "bg-red-500 text-white scale-110" : "bg-white/80 text-gray-700 hover:bg-red-100"}`}
+          >
+            <Heart size={20} fill={isFav ? "white" : "none"} />
+          </button>
+        )}
       </Link>
 
-      {/* Content Section */}
+      {/* 🔹 Content Section */}
       <div className="relative p-5 space-y-3">
-        {/* Title */}
         <Link href={`/recipes/${r.slug}`}>
-          <h3 className="font-extrabold text-lg text-gray-900 dark:text-gray-100 
-                         group-hover:text-transparent bg-clip-text 
-                         bg-gradient-to-r from-purple-600 to-pink-600 transition-all">
+          <h3
+            className="font-extrabold text-lg text-gray-900 dark:text-gray-100 
+                       group-hover:text-transparent bg-clip-text 
+                       bg-gradient-to-r from-purple-600 to-pink-600 transition-all"
+          >
             {r.name}
           </h3>
         </Link>
@@ -87,9 +97,11 @@ export default function RecipeCard({ r }: RecipeCardProps) {
         </div>
 
         {/* Rating */}
-        <div className="pt-2">
-          <Rating value={rating} onChange={handleRating} />
-        </div>
+        {hydrated && (
+          <div className="pt-2">
+            <Rating value={rating} onChange={handleRating} />
+          </div>
+        )}
 
         {/* CTA Button */}
         <div className="pt-3">

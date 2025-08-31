@@ -10,14 +10,24 @@ import { motion } from "framer-motion";
 
 export default function RecipeDetail() {
   const { slug } = useParams();
-  const recipe = RECIPES.find(r => r.slug === slug);
+  const recipe = RECIPES.find((r) => r.slug === slug);
 
-  const [rating, setRatingState] = React.useState(() =>
-    recipe ? getRatings()[recipe.id] || 0 : 0
-  );
-  const [favorites, setFavorites] = React.useState<string[]>(getFavorites());
+  const [rating, setRatingState] = React.useState<number>(0);
+  const [favorites, setFavorites] = React.useState<string[]>([]);
+  const [hydrated, setHydrated] = React.useState(false);
 
-  if (!recipe) return <p className="p-10 text-center text-gray-500">Recipe not found.</p>;
+  // ✅ Hydrate localStorage data only on client
+  React.useEffect(() => {
+    if (recipe) {
+      setRatingState(getRatings()[recipe.id] || 0);
+    }
+    setFavorites(getFavorites());
+    setHydrated(true);
+  }, [recipe]);
+
+  if (!recipe) {
+    return <p className="p-10 text-center text-gray-500">Recipe not found.</p>;
+  }
 
   const isFav = favorites.includes(recipe.id);
 
@@ -76,18 +86,22 @@ export default function RecipeDetail() {
                 <Utensils size={16} /> Serves {recipe.servings}
               </span>
             </div>
-            <div>
-              <Rating value={rating} onChange={handleRating} />
-              <button
-                onClick={handleFav}
-                className={`mt-3 w-full px-4 py-2 rounded-lg text-sm font-medium transition
-                ${isFav
-                  ? "bg-red-500 text-white"
-                  : "bg-gray-200 hover:bg-gray-300 dark:bg-neutral-700 dark:hover:bg-neutral-600"}`}
-              >
-                {isFav ? "❤️ In Favorites" : "♡ Add to Favorites"}
-              </button>
-            </div>
+            {hydrated && (
+              <div>
+                <Rating value={rating} onChange={handleRating} />
+                <button
+                  onClick={handleFav}
+                  className={`mt-3 w-full px-4 py-2 rounded-lg text-sm font-medium transition
+                  ${
+                    isFav
+                      ? "bg-red-500 text-white"
+                      : "bg-gray-200 hover:bg-gray-300 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                  }`}
+                >
+                  {isFav ? "❤️ In Favorites" : "♡ Add to Favorites"}
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Ingredients */}

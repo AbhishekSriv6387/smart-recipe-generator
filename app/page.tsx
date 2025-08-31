@@ -22,6 +22,7 @@ export default function HomePage() {
     diet?: string[];
   }>({});
 
+  // 🔹 Re-run filters when query or filters change
   React.useEffect(() => {
     let r = RECIPES.slice();
     if (filters.difficulty) r = r.filter(x => x.difficulty === filters.difficulty);
@@ -33,11 +34,12 @@ export default function HomePage() {
       r = r.filter(
         x =>
           x.name.toLowerCase().includes(query.toLowerCase()) ||
-          x.tags?.some(t => t.includes(query.toLowerCase()))
+          x.tags?.some(t => t.toLowerCase().includes(query.toLowerCase()))
       );
     setFiltered(r);
   }, [filters, query]);
 
+  // 🔹 Ranking is pure function, safe to memoize
   const ranked = React.useMemo(() => rankRecipes(filtered, pantry, diet), [filtered, pantry, diet]);
 
   return (
