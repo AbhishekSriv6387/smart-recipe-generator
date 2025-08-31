@@ -54,7 +54,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 55,
       "fat": 14
     },
-    "image": "https://picsum.photos/seed/pizza/800/600",
+    "image": "/images/recipes/cmp.jpg",
     "tags": [
       "quick",
       "bake"
@@ -119,7 +119,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 65,
       "fat": 9
     },
-    "image": "https://picsum.photos/seed/noodles/800/600",
+    "image": "/images/recipes/noodles.jpg",
     "tags": [
       "quick",
       "one-pan"
@@ -190,7 +190,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 55,
       "fat": 16
     },
-    "image": "https://picsum.photos/seed/chana/800/600",
+    "image": "/images/recipes/cc.jpg",
     "tags": [
       "meal-prep",
       "budget"
@@ -255,7 +255,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 10,
       "fat": 18
     },
-    "image": "https://picsum.photos/seed/salad/800/600",
+    "image": "/images/recipes/cs.jpg",
     "tags": [
       "high-protein",
       "fresh"
@@ -315,7 +315,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 48,
       "fat": 24
     },
-    "image": "https://picsum.photos/seed/paneer/800/600",
+    "image": "/images/recipes/ptw.jpg",
     "tags": [
       "street-food"
     ]
@@ -379,7 +379,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 72,
       "fat": 14
     },
-    "image": "https://picsum.photos/seed/risotto/800/600",
+    "image": "/images/recipes/mr.jpg",
     "tags": [
       "comfort"
     ]
@@ -435,7 +435,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 18,
       "fat": 18
     },
-    "image": "https://picsum.photos/seed/shak/800/600",
+    "image": "/images/recipes/ss.jpg",
     "tags": [
       "brunch",
       "one-pan"
@@ -495,7 +495,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 45,
       "fat": 9
     },
-    "image": "https://picsum.photos/seed/quinoa/800/600",
+    "image": "/images/recipes/salad.jpg",
     "tags": [
       "fresh",
       "light"
@@ -549,7 +549,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 76,
       "fat": 16
     },
-    "image": "https://picsum.photos/seed/gbp/800/600",
+    "image": "/images/recipes/pasta.jpg",
     "tags": [
       "quick"
     ]
@@ -608,7 +608,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 40,
       "fat": 4
     },
-    "image": "https://picsum.photos/seed/lentil/800/600",
+    "image": "/images/recipes/ls.jpg",
     "tags": [
       "budget",
       "comfort"
@@ -660,7 +660,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 52,
       "fat": 22
     },
-    "image": "https://picsum.photos/seed/beef-tacos/800/600",
+    "image": "/images/recipes/tacos.jpg",
     "tags": []
   },
   {
@@ -712,7 +712,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 55,
       "fat": 14
     },
-    "image": "https://picsum.photos/seed/tofu-buddha-bowl/800/600",
+    "image": "/images/recipes/tofu.jpg",
     "tags": []
   },
   {
@@ -755,7 +755,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 38,
       "fat": 24
     },
-    "image": "https://picsum.photos/seed/avocado-toast-egg/800/600",
+    "image": "/images/recipes/ate.jpg",
     "tags": []
   },
   {
@@ -806,7 +806,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 60,
       "fat": 9
     },
-    "image": "https://picsum.photos/seed/vegan-pancakes/800/600",
+    "image": "/images/recipes/pc.jpg",
     "tags": []
   },
   {
@@ -855,7 +855,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 20,
       "fat": 40
     },
-    "image": "https://picsum.photos/seed/butter-chicken/800/600",
+    "image": "/images/recipes/bc.jpg",
     "tags": []
   },
   {
@@ -905,7 +905,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 66,
       "fat": 22
     },
-    "image": "https://picsum.photos/seed/falafel-wrap/800/600",
+    "image": "/images/recipes/falafel.jpg",
     "tags": []
   },
   {
@@ -950,7 +950,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 2,
       "fat": 30
     },
-    "image": "https://picsum.photos/seed/baked-salmon/800/600",
+    "image": "/images/recipes/bs.jpg",
     "tags": []
   },
   {
@@ -996,7 +996,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 8,
       "fat": 22
     },
-    "image": "https://picsum.photos/seed/caprese-salad/800/600",
+    "image": "/images/recipes/caprese-salad.jpg",
     "tags": []
   },
   {
@@ -1047,7 +1047,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 90,
       "fat": 14
     },
-    "image": "https://picsum.photos/seed/veg-biryani/800/600",
+    "image": "/images/recipes/biryani.jpg",
     "tags": []
   },
   {
@@ -1097,7 +1097,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 70,
       "fat": 18
     },
-    "image": "https://picsum.photos/seed/peanut-noodle-salad/800/600",
+    "image": "/images/recipes/pnoodle.jpg",
     "tags": []
   },
   {
@@ -1145,7 +1145,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 80,
       "fat": 12
     },
-    "image": "https://picsum.photos/seed/egg-fried-rice/800/600",
+    "image": "/images/recipes/efr.jpg",
     "tags": []
   },
   {
@@ -1196,7 +1196,7 @@ export const RECIPES: Recipe[] = [
       "carbs": 24,
       "fat": 14
     },
-    "image": "https://picsum.photos/seed/tomato-soup/800/600",
+    "image": "/images/recipes/tomato-soup.jpg",
     "tags": []
   },
   {
@@ -1221,7 +1221,7 @@ export const RECIPES: Recipe[] = [
 "Mix pasta with yolks, cheese, pancetta, and pepper."
 ],
 "nutritionPerServing": { "calories": 560, "protein": 22, "carbs": 70, "fat": 20 },
-"image": "https://picsum.photos/seed/carbonara/800/600",
+"image": "/images/recipes/sc.jpg",
 "tags": ["classic"]
 },
 {
@@ -1245,7 +1245,7 @@ export const RECIPES: Recipe[] = [
 "Mix with feta, olives, and olive oil."
 ],
 "nutritionPerServing": { "calories": 280, "protein": 10, "carbs": 14, "fat": 22 },
-"image": "https://picsum.photos/seed/greek-salad/800/600",
+"image": "/images/recipes/gs.jpg",
 "tags": ["fresh"]
 },
 {
@@ -1270,7 +1270,7 @@ export const RECIPES: Recipe[] = [
 "Assemble bowl with noodles, stock, egg, and garnish."
 ],
 "nutritionPerServing": { "calories": 520, "protein": 24, "carbs": 70, "fat": 16 },
-"image": "https://picsum.photos/seed/ramen/800/600",
+"image": "/images/recipes/ramen.jpg",
 "tags": ["comfort"]
 },
 {
@@ -1320,7 +1320,7 @@ export const RECIPES: Recipe[] = [
     "Garnish with spring onion."
   ],
   nutritionPerServing: { calories: 120, protein: 9, carbs: 8, fat: 4 },
-  image: "/images/recipes/miso-soup.jpg",
+  image: "/images/recipes/ms.jpg",
   tags: ["light", "soup"]
 },
 {
@@ -1445,7 +1445,7 @@ export const RECIPES: Recipe[] = [
     "Layer rice and chicken, steam on low until done."
   ],
   nutritionPerServing: { calories: 650, protein: 32, carbs: 78, fat: 22 },
-  image: "/images/recipes/chicken-biryani.jpg",
+  image: "/images/recipes/biryani.jpg",
   tags: ["festive", "spicy"]
 },
 {
@@ -1520,7 +1520,7 @@ export const RECIPES: Recipe[] = [
     "Deep fry fish and potatoes until golden."
   ],
   nutritionPerServing: { calories: 700, protein: 32, carbs: 65, fat: 34 },
-  image: "/images/recipes/fish-and-chips.jpg",
+  image: "/images/recipes/fnc.jpg",
   tags: ["crispy", "street-food"]
 },
 {
@@ -1595,7 +1595,7 @@ export const RECIPES: Recipe[] = [
     "Bake at 180°C for 25 minutes."
   ],
   nutritionPerServing: { calories: 320, protein: 8, carbs: 55, fat: 8 },
-  image: "/images/recipes/stuffed-bell-peppers.jpg",
+  image: "/images/recipes/sbp.jpg",
   tags: ["bake", "healthy"]
 },
 {
@@ -1619,7 +1619,7 @@ export const RECIPES: Recipe[] = [
     "Pour into tray and bake at 180°C for 25 minutes."
   ],
   nutritionPerServing: { calories: 420, protein: 6, carbs: 58, fat: 20 },
-  image: "/images/recipes/chocolate-brownies.jpg",
+  image: "/images/recipes/cb.jpg",
   tags: ["dessert", "sweet"]
 },
 {
@@ -1644,7 +1644,7 @@ export const RECIPES: Recipe[] = [
     "Toss beef back in and serve with noodles."
   ],
   nutritionPerServing: { calories: 620, protein: 32, carbs: 50, fat: 30 },
-  image: "/images/recipes/beef-stroganoff.jpg",
+  image: "/images/recipes/beefs.jpg",
   tags: ["comfort", "hearty"]
 },
 {
@@ -1669,7 +1669,7 @@ export const RECIPES: Recipe[] = [
     "Wrap tightly and serve."
   ],
   nutritionPerServing: { calories: 520, protein: 16, carbs: 78, fat: 14 },
-  image: "/images/recipes/vegan-burrito.jpg",
+  image: "/images/recipes/vb.jpg",
   tags: ["street-food", "hearty"]
 },
 {
@@ -1694,7 +1694,7 @@ export const RECIPES: Recipe[] = [
     "Finish with cream and seasoning."
   ],
   nutritionPerServing: { calories: 280, protein: 6, carbs: 38, fat: 10 },
-  image: "/images/recipes/butternut-soup.jpg",
+  image: "/images/recipes/butternut-squash-soup.jpg",
   tags: ["soup", "comfort"]
 },
 {
@@ -1719,7 +1719,7 @@ export const RECIPES: Recipe[] = [
     "Serve with salad or roasted potatoes."
   ],
   nutritionPerServing: { calories: 540, protein: 38, carbs: 4, fat: 40 },
-  image: "/images/recipes/grilled-lamb-chops.jpg",
+  image: "/images/recipes/glc.jpg",
   tags: ["grill", "protein-rich"]
 },
 {
@@ -1744,7 +1744,7 @@ export const RECIPES: Recipe[] = [
     "Add paneer cubes and simmer with cream."
   ],
   nutritionPerServing: { calories: 520, protein: 18, carbs: 26, fat: 36 },
-  image: "/images/recipes/paneer-butter-masala.jpg",
+  image: "/images/recipes/pbm.jpg",
   tags: ["curry", "creamy"]
 },
 {
@@ -1769,7 +1769,7 @@ export const RECIPES: Recipe[] = [
     "Pour glaze over salmon and garnish with onion."
   ],
   nutritionPerServing: { calories: 430, protein: 32, carbs: 8, fat: 28 },
-  image: "/images/recipes/salmon-teriyaki.jpg",
+  image: "/images/recipes/st.jpg",
   tags: ["seafood", "quick"]
 },
 {
@@ -1843,7 +1843,7 @@ export const RECIPES: Recipe[] = [
     "Pour into bowl and top with granola and seeds."
   ],
   nutritionPerServing: { calories: 320, protein: 6, carbs: 60, fat: 8 },
-  image: "/images/recipes/mango-smoothie-bowl.jpg",
+  image: "/images/recipes/msb.jpg",
   tags: ["breakfast", "fresh"]
 },
 {

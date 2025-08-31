@@ -3,41 +3,73 @@
 @tailwind utilities;
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.9rem;
 }
 
+/* Full height layout */
 html, body {
   height: 100%;
 }
 
+/* 🌈 Background theme */
 body {
-  @apply bg-white text-gray-900 dark:bg-neutral-950 dark:text-neutral-100;
+  @apply text-gray-900 dark:text-neutral-100;
+  background: linear-gradient(135deg, #fff7ed, #ffe4e6, #fef9c3);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+
+  @apply dark:bg-neutral-950;
 }
 
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 📦 Containers */
 .container-py {
   @apply container py-6 md:py-10;
 }
 
+/* 🪟 Glassy Cards */
 .card {
-  @apply rounded-2xl border border-gray-200 bg-white shadow-soft dark:border-neutral-800 dark:bg-neutral-900;
+  @apply rounded-2xl border border-white/30 bg-white/70 backdrop-blur-md shadow-lg 
+         dark:border-neutral-800 dark:bg-neutral-900/70;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+/* 🎛 Buttons */
 .btn {
   @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition;
 }
 
 .btn-primary {
-  @apply btn bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100;
+  @apply bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 
+         text-white shadow-md hover:opacity-90 
+         dark:from-yellow-400 dark:to-pink-500;
 }
 
+/* ✍️ Inputs */
 .input {
-  @apply w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm outline-none transition placeholder:text-gray-400 focus:ring-2 focus:ring-gray-900 dark:border-neutral-800 dark:bg-neutral-900 dark:placeholder:text-neutral-500 dark:focus:ring-neutral-100;
+  @apply w-full rounded-xl border border-gray-300 bg-white/80 px-3 py-2 text-sm outline-none transition
+         placeholder:text-gray-400 focus:ring-2 focus:ring-pink-500 
+         dark:border-neutral-800 dark:bg-neutral-900/80 dark:placeholder:text-neutral-500 dark:focus:ring-yellow-400;
 }
 
+/* 🔖 Badges */
 .badge {
-  @apply inline-flex items-center rounded-full border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-700 dark:border-neutral-800 dark:text-neutral-200;
+  @apply inline-flex items-center rounded-full border border-gray-300 bg-white/60 px-3 py-1 text-xs font-semibold text-gray-700 
+         shadow-sm transition hover:scale-105 hover:shadow-md
+         dark:border-neutral-800 dark:bg-neutral-800/60 dark:text-neutral-200;
 }
 
+/* ⬜ Loading Skeletons */
 .skeleton {
-  @apply animate-pulse rounded-xl bg-gray-200 dark:bg-neutral-800;
+  @apply animate-pulse rounded-xl bg-gray-200/80 dark:bg-neutral-800/80;
 }

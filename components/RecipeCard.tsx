@@ -29,50 +29,59 @@ export default function RecipeCard({ r }: RecipeCardProps) {
 
   return (
     <div
-      className="group relative rounded-2xl bg-gradient-to-br from-white via-gray-50 to-purple-50 
-                 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900 
-                 shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 
-                 hover:scale-[1.03] border border-gray-100 dark:border-neutral-700"
+      className="group relative rounded-3xl overflow-hidden shadow-xl border border-gray-100 
+                 dark:border-neutral-800 transition-all duration-500 hover:scale-[1.03] 
+                 hover:shadow-2xl bg-gradient-to-br from-white/80 to-purple-50/80 
+                 dark:from-neutral-900/70 dark:to-neutral-800/70 backdrop-blur-lg"
     >
-      {/* Image with overlay */}
+      {/* Image Section */}
       <Link href={`/recipes/${r.slug}`} className="block relative">
         <img
           src={r.image}
           alt={r.name}
-          className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-70 group-hover:opacity-90 transition"></div>
-        
-        {/* Fav button */}
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent 
+                        opacity-70 group-hover:opacity-90 transition-all"></div>
+
+        {/* Floating Favorite Button */}
         <button
           onClick={(e) => {
             e.preventDefault();
             handleFav();
           }}
-          className={`absolute top-3 right-3 p-2 rounded-full shadow-md transition-transform 
-          ${isFav ? "bg-red-500 text-white scale-110" : "bg-white/90 text-gray-600 hover:bg-red-100"} 
-          hover:scale-110`}
+          className={`absolute top-4 right-4 p-3 rounded-full shadow-lg backdrop-blur-md 
+                      transition-all duration-300 hover:scale-110
+                      ${isFav ? "bg-red-500 text-white scale-110" : "bg-white/80 text-gray-700 hover:bg-red-100"}`}
         >
-          <Heart size={18} fill={isFav ? "white" : "none"} />
+          <Heart size={20} fill={isFav ? "white" : "none"} />
         </button>
       </Link>
 
-      {/* Content */}
+      {/* Content Section */}
       <div className="relative p-5 space-y-3">
         {/* Title */}
         <Link href={`/recipes/${r.slug}`}>
-          <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100 group-hover:text-purple-600 transition">
+          <h3 className="font-extrabold text-lg text-gray-900 dark:text-gray-100 
+                         group-hover:text-transparent bg-clip-text 
+                         bg-gradient-to-r from-purple-600 to-pink-600 transition-all">
             {r.name}
           </h3>
         </Link>
+
         <p className="text-sm text-gray-500 dark:text-gray-400">{r.cuisine}</p>
 
-        {/* Meta info badges */}
+        {/* Meta Info */}
         <div className="flex items-center gap-3 text-sm">
-          <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">
+          <span className="flex items-center gap-1 px-3 py-1 rounded-full 
+                           bg-purple-100 text-purple-700 font-medium 
+                           dark:bg-purple-900/40 dark:text-purple-300">
             <Clock size={16} /> {r.timeMinutes}m
           </span>
-          <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+          <span className="flex items-center gap-1 px-3 py-1 rounded-full 
+                           bg-blue-100 text-blue-700 font-medium 
+                           dark:bg-blue-900/40 dark:text-blue-300">
             <ChefHat size={16} /> {r.difficulty}
           </span>
         </div>
@@ -82,16 +91,16 @@ export default function RecipeCard({ r }: RecipeCardProps) {
           <Rating value={rating} onChange={handleRating} />
         </div>
 
-        {/* Button */}
-        <div className="pt-2">
+        {/* CTA Button */}
+        <div className="pt-3">
           <Link
             href={`/recipes/${r.slug}`}
-            className="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium 
-                       text-white bg-gradient-to-r from-purple-600 to-pink-600 
-                       rounded-full shadow hover:from-purple-700 hover:to-pink-700 
-                       transition-all"
+            className="inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold 
+                       text-white rounded-full shadow-md 
+                       bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 
+                       hover:opacity-90 hover:scale-105 transition-all"
           >
-            View Recipe →
+            🍴 View Recipe
           </Link>
         </div>
       </div>
