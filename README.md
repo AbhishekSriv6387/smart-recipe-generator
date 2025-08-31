@@ -1,60 +1,90 @@
-# Smart Recipe Generator
+# 🍳 Smart Recipe Generator
 
-Production-ready Next.js (TypeScript) app that suggests recipes from ingredients you type or detect from photos. Clean, responsive UI built with Tailwind and minimal shadcn-style components; animations via Framer Motion.
-
-## Tech
-- Next.js 14 (App Router) + TypeScript
-- Tailwind CSS + minimal shadcn/ui-like primitives (Button, Card, Input, Badge, Skeleton)
-- Framer Motion, lucide-react
-- Minimal backend: Edge function for ingredient recognition via Hugging Face Inference API
-- Static dataset (22 recipes) in `lib/recipes.ts`
-
-## Getting Started
-```bash
-pnpm i   # or npm i / yarn
-cp .env.example .env.local
-pnpm dev
-```
-Open http://localhost:3000
-
-### Environment
-Create `.env.local`:
-```
-HUGGINGFACE_API_KEY=your-hf-token
-```
-If unset, the app still runs but image ingredient recognition returns an empty list with a note.
-
-## Ingredient Classification (Approach)
-We call the free Hugging Face Inference API (model: `nateraw/food`) from an Edge route (`/api/recognize`). The top labels are normalized and mapped to a curated ingredient list (e.g., "noodles" → "noodles", "mozzarella" → "mozzarella"). This avoids over-prediction and aligns with the recipe dataset. Errors from the API are surfaced to the user; if the API key is missing or rate-limited we gracefully fall back.
-
-## Matching Logic
-A weighted scorer computes a per-ingredient score: exact match (5), partial (2), substitution (1) using `lib/substitutions.ts`. Diet violations apply a large negative bias. We add small bonuses for quick and easy recipes, and normalize by ingredient count. Top-ranked recipes surface first on the Home page.
-
-## Substitution Map
-Common practical swaps (butter↔oil/ghee, milk↔plant milks, egg↔flax egg, etc.) live in `lib/substitutions.ts` and are referenced during scoring and suggestions.
-
-## Filters & Scaling
-Filters (difficulty, max time, cuisine, dietary) run client-side on the dataset. Serving size is adjustable on the recipe detail page; ingredient quantities and nutrition scale linearly by a factor.
-
-## User Feedback & Personalization
-Ratings (1–5 stars) and Favorites persist in `localStorage` via lightweight hooks. A future enhancement could recommend by similar cuisines weighted by rating.
-
-## Error Handling & UX
-- Graceful error messaging for failed API calls
-- Loading/disabled states for uploads
-- Empty states on Favorites and recipe grids
-- Responsive layout; sensible keyboard targets and alt text
-
-## Deploy
-- Push to GitHub then “Import Project” on Vercel. No extra config required.
-- Set `HUGGINGFACE_API_KEY` in Vercel Project → Settings → Environment Variables.
-- Add the live URL to this README.
-
-## Notes
-- Images use placeholder Unsplash/Picsum seeds; replace with your assets if needed.
-- The dataset is illustrative; nutrition values are approximate.
-- Keep your total development time within your target window.
+A modern **AI-powered recipe discovery app** built with **Next.js 14**, **Tailwind CSS**, and **TypeScript**.  
+Users can add ingredients from their pantry, apply dietary filters, search by cuisine or difficulty, save favorites, and rate recipes.  
+The app generates **personalized recipe suggestions** instantly.
 
 ---
 
-© 2025-08-30 Smart Recipe Generator
+## 🌐 Live Demo
+👉 [Deployed App on Vercel](https://smart-recipe-generator-ashen.vercel.app/)
+
+---
+
+## 📂 Repository
+👉 [GitHub Repository](https://github.com/AbhishekSriv6387/smart-recipe-generator)
+
+---
+
+## ✨ Features
+- 🔍 Search recipes by name, cuisine, difficulty, or tags  
+- 🥕 Pantry-based recipe recommendations  
+- 🥗 Dietary filters (vegan, vegetarian, gluten-free, etc.)  
+- ⭐ Save **favorites** (stored in browser `localStorage`)  
+- ❤️ Rate recipes and get personalized suggestions  
+- 🎨 Beautiful responsive UI with Tailwind & Framer Motion  
+- ☁️ Deployed seamlessly on **Vercel**
+
+---
+
+## 🛠️ Tech Stack
+- [Next.js 14](https://nextjs.org/) – React framework
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/) – Styling
+- [Framer Motion](https://www.framer.com/motion/) – Animations
+- [Lucide Icons](https://lucide.dev/) – Icons
+
+---
+
+## 🚀 Getting Started (Local Setup)
+
+```bash
+# Clone repository
+git clone https://github.com/AbhishekSriv6387/smart-recipe-generator.git
+
+cd smart-recipe-generator
+
+# Install dependencies
+npm install
+
+# Run locally
+npm run dev
+
+# Build for production
+npm run build
+```
+
+The app will be available at **https://smart-recipe-generator-ashen.vercel.app/**
+
+---
+
+## 📸 Screenshots
+| Home Page | Recipe Detail | Favorites |
+|-----------|---------------|-----------|
+| ![Home](public/images/home.png) | ![Detail](public/images/recipe.png) | ![Favorites](public/images/favorites.png) |
+
+---
+
+## 📝 Innovative Approach (200 words)
+
+The Smart Recipe Generator was designed to help users discover meals tailored to their pantry and preferences. My approach focused on **simplicity, modularity, and user experience**. At its core, the app uses a pantry-based ranking function: users list ingredients, and recipes are ranked based on overlap. This transforms decision-making into a guided, smart process.
+
+I leveraged **Next.js 14** for scalability and smooth deployment with Vercel. To avoid server-side rendering issues with `localStorage`, I carefully isolated client-only logic using `useEffect` and hydration checks. This ensures favorites and ratings persist across sessions without database dependencies, keeping the app lightweight and reliable.
+
+Filters for cuisine, difficulty, dietary preference, and time were implemented as composable constraints, allowing users to refine results flexibly. A recommendation engine further enhances personalization by suggesting recipes from similar cuisines as the user’s favorites, with fallbacks to top-rated dishes.
+
+From a UX standpoint, I prioritized clarity and delight—animated transitions via **Framer Motion**, responsive layouts, and visually appealing cards make interaction smooth. All recipes and assets are modular, so extending the dataset requires no code changes. This balance of thoughtful architecture and engaging design ensures the project remains both **practical and scalable**.
+
+---
+
+## 📦 Deliverables
+1. **Working Application URL** (Vercel)
+2. **GitHub Repository** with full source code + README
+3. **Brief Write-Up** (this document)
+
+---
+
+## 👨‍💻 Author
+**Abhishek Srivastava**  
+📧 abhisheksriv6387@gmail.com  
+🌐 [GitHub Profile](https://github.com/AbhishekSriv6387)
