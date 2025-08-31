@@ -1895,6 +1895,194 @@ export const RECIPES: Recipe[] = [
   nutritionPerServing: { calories: 560, protein: 22, carbs: 68, fat: 22 },
   image: "/images/recipes/spinach-lasagna.jpg",
   tags: ["bake", "comfort"]
+},
+{
+  "id": "r51",
+  "slug": "steamed-momos",
+  "name": "Steamed Momos",
+  "cuisine": "Chinese",
+  "difficulty": "medium",
+  "timeMinutes": 40,
+  "servings": 4,
+  "dietary": [
+    "vegetarian"
+  ],
+  "ingredients": [
+    { "name": "all-purpose flour", "quantity": 250, "unit": "g" },
+    { "name": "cabbage", "quantity": 100, "unit": "g" },
+    { "name": "carrot", "quantity": 1, "unit": "" },
+    { "name": "onion", "quantity": 1, "unit": "" },
+    { "name": "garlic", "quantity": 2, "unit": "cloves" },
+    { "name": "oil", "quantity": 1, "unit": "tbsp" },
+    { "name": "salt", "quantity": 0.5, "unit": "tsp" }
+  ],
+  "steps": [
+    "Prepare dough with flour and water; rest 20 minutes.",
+    "Finely chop vegetables, sauté briefly with garlic and salt.",
+    "Roll dough into small circles, fill with stuffing, shape momos.",
+    "Steam 10–12 minutes until translucent."
+  ],
+  "nutritionPerServing": {
+    "calories": 280,
+    "protein": 7,
+    "carbs": 50,
+    "fat": 6
+  },
+  "image": "/images/recipes/momos.jpg",
+  "tags": ["street-food", "snack"]
+},
+{
+  "id": "r52",
+  "slug": "classic-burger",
+  "name": "Classic Burger",
+  "cuisine": "American",
+  "difficulty": "easy",
+  "timeMinutes": 25,
+  "servings": 2,
+  "dietary": [],
+  "ingredients": [
+    { "name": "burger buns", "quantity": 2, "unit": "" },
+    { "name": "beef patty", "quantity": 2, "unit": "" },
+    { "name": "cheese slice", "quantity": 2, "unit": "" },
+    { "name": "lettuce", "quantity": 2, "unit": "leaves" },
+    { "name": "tomato", "quantity": 1, "unit": "sliced" },
+    { "name": "onion", "quantity": 0.5, "unit": "" },
+    { "name": "mayonnaise", "quantity": 1, "unit": "tbsp" }
+  ],
+  "steps": [
+    "Grill patties until cooked through.",
+    "Toast buns lightly.",
+    "Assemble with mayo, lettuce, tomato, onion, patty, and cheese.",
+    "Serve hot."
+  ],
+  "nutritionPerServing": {
+    "calories": 550,
+    "protein": 28,
+    "carbs": 42,
+    "fat": 28
+  },
+  "image": "/images/recipes/burger.jpg",
+  "tags": ["fast-food", "grilled"]
+},
+{
+  "id": "r53",
+  "slug": "aloo-paratha",
+  "name": "Aloo Paratha",
+  "cuisine": "Indian",
+  "difficulty": "medium",
+  "timeMinutes": 30,
+  "servings": 2,
+  "dietary": ["vegetarian"],
+  "ingredients": [
+    { "name": "wheat flour", "quantity": 200, "unit": "g" },
+    { "name": "potato", "quantity": 2, "unit": "" },
+    { "name": "onion", "quantity": 0.5, "unit": "" },
+    { "name": "green chili", "quantity": 1, "unit": "" },
+    { "name": "coriander", "quantity": 1, "unit": "tbsp" },
+    { "name": "salt", "quantity": 0.5, "unit": "tsp" },
+    { "name": "ghee", "quantity": 1, "unit": "tbsp" }
+  ],
+  "steps": [
+    "Prepare dough with wheat flour and water.",
+    "Boil, mash potatoes; mix with onion, chili, coriander, and salt.",
+    "Roll dough, fill with stuffing, seal and roll flat.",
+    "Cook on tawa with ghee until golden."
+  ],
+  "nutritionPerServing": {
+    "calories": 380,
+    "protein": 9,
+    "carbs": 65,
+    "fat": 10
+  },
+  "image": "/images/recipes/aloo-paratha.jpg",
+  "tags": ["breakfast", "stuffed"]
+},
+{
+  "id": "r54",
+  "slug": "crispy-dosa",
+  "name": "Crispy Dosa",
+  "cuisine": "South Indian",
+  "difficulty": "medium",
+  "timeMinutes": 35,
+  "servings": 3,
+  "dietary": ["vegan", "gluten-free"],
+  "ingredients": [
+    { "name": "dosa batter", "quantity": 300, "unit": "ml" },
+    { "name": "oil", "quantity": 2, "unit": "tsp" },
+    { "name": "salt", "quantity": 0.25, "unit": "tsp" }
+  ],
+  "steps": [
+    "Heat tawa, pour batter, spread thin in circular motion.",
+    "Drizzle oil on edges.",
+    "Cook until golden and crispy, fold and serve."
+  ],
+  "nutritionPerServing": {
+    "calories": 220,
+    "protein": 5,
+    "carbs": 45,
+    "fat": 4
+  },
+  "image": "/images/recipes/dosa.jpg",
+  "tags": ["breakfast", "south-indian"]
+},
+{
+  "id": "r55",
+  "slug": "soft-idli",
+  "name": "Soft Idli",
+  "cuisine": "South Indian",
+  "difficulty": "easy",
+  "timeMinutes": 25,
+  "servings": 3,
+  "dietary": ["vegan", "gluten-free"],
+  "ingredients": [
+    { "name": "idli batter", "quantity": 300, "unit": "ml" },
+    { "name": "oil", "quantity": 1, "unit": "tsp" }
+  ],
+  "steps": [
+    "Grease idli moulds, pour batter halfway.",
+    "Steam for 10–12 minutes until fluffy.",
+    "Cool slightly before serving."
+  ],
+  "nutritionPerServing": {
+    "calories": 200,
+    "protein": 6,
+    "carbs": 42,
+    "fat": 2
+  },
+  "image": "/images/recipes/idli.jpg",
+  "tags": ["breakfast", "steamed"]
+},
+{
+  "id": "r56",
+  "slug": "malai-chaap",
+  "name": "Malai Chaap",
+  "cuisine": "Indian",
+  "difficulty": "medium",
+  "timeMinutes": 40,
+  "servings": 3,
+  "dietary": ["vegetarian"],
+  "ingredients": [
+    { "name": "soya chaap sticks", "quantity": 300, "unit": "g" },
+    { "name": "yogurt", "quantity": 100, "unit": "g" },
+    { "name": "cream", "quantity": 50, "unit": "ml" },
+    { "name": "ginger garlic paste", "quantity": 1, "unit": "tsp" },
+    { "name": "green chili", "quantity": 1, "unit": "" },
+    { "name": "garam masala", "quantity": 0.5, "unit": "tsp" },
+    { "name": "salt", "quantity": 0.5, "unit": "tsp" }
+  ],
+  "steps": [
+    "Marinate chaap with yogurt, cream, spices, and ginger garlic paste.",
+    "Rest for 30 minutes.",
+    "Grill or pan-sear until golden and cooked.",
+    "Serve hot with chutney."
+  ],
+  "nutritionPerServing": {
+    "calories": 420,
+    "protein": 22,
+    "carbs": 28,
+    "fat": 22
+  },
+  "image": "/images/recipes/malai-chaap.jpg",
+  "tags": ["tandoori", "street-food"]
 }
-
 ];
