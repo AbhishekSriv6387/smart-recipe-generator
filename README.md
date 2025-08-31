@@ -61,7 +61,7 @@ The app will be available at **https://smart-recipe-generator-ashen.vercel.app/*
 ## 📸 Screenshots
 | Home Page | Recipe Detail | Favorites |
 |-----------|---------------|-----------|
-| ![Home](public/images/home.png) | ![Detail](public/images/recipe.png) | ![Favorites](public/images/favorites.png) |
+| ![Home](public/images/home.png) | ![Detail](public/images/recipe.png) | ![Favorites](public/images/fav.png) |
 
 ---
 
